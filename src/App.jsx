@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Pet from './Pet';
+import Pet from './Pet.jsx';
 
 class App extends React.Component {
-  handleTitleClick() {
-    alert('you clicked the title');
-  }
-
   render() {
     return (
       <div>
