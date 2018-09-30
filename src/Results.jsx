@@ -61,6 +61,7 @@ class Results extends React.Component {
               breed={breed}
               name={pet.name}
               media={pet.media}
+              id={pet.id}
               location={`${pet.contact.city}, ${pet.contact.state}`}
             />
           );
