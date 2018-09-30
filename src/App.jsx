@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import pf from 'petfinder-client';
 import Pet from './Pet.jsx';
 
+//This is a bad practices since when we bundle someone could see the key/secrets.
+// For the purpose of learning, this is an acceptable risk.
 const petfinder = pf({
   key: process.env.API_KEY,
   secret: process.env.API_SECRET
