@@ -11,19 +11,60 @@ const petfinder = pf({
 });
 
 class App extends React.Component {
-  componentDidMount() {
-    const promise = petfinder.breed.list({ animal: 'dog' });
+  constructor(props) {
+    super(props);
 
-    promise.then(console.log, console.error);
+    this.state = {
+      pets: []
+    };
+  }
+
+  componentDidMount() {
+    petfinder.pet
+      .find({ output: 'full', location: 'Seattle, WA' })
+      .then(data => {
+        let pets;
+
+        //check the data to appropriately shape it since the API is xml and a bit wonky
+        if (data.petfinder.pets && data.petfinder.pets.pet) {
+          if (Array.isArray(data.petfinder.pets.pet)) {
+            pets = data.petfinder.pets.pet;
+          } else {
+            pets = [data.petfinder.pets.pet];
+          }
+        } else {
+          pets = [];
+        }
+
+        //es6 allows to use just name of var if var and value are same name.
+        //Same as pets: pets
+        this.setState({
+          pets
+        });
+      });
   }
 
   render() {
     return (
       <div>
         <h1>Adopt Me!</h1>
-        <Pet name="Luna" animal="dog" breed="Havenese" />
-        <Pet name="Pepper" animal="bird" breed="Cockatiel" />
-        <Pet name="Doink" animal="cat" breed="Mixed" />
+        {this.state.pets.map(pet => {
+          let breed;
+          if (Array.isArray(pet.breeds.breed)) {
+            breed = pet.breeds.breed.join(', ');
+          } else {
+            breed = pet.breeds.breed;
+          }
+
+          return (
+            <Pet
+              key={pet.id}
+              animal={pet.animal}
+              breed={breed}
+              name={pet.name}
+            />
+          );
+        })}
       </div>
     );
   }
