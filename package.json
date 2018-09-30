@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/deduced/pet-adoption-react.git"
   },
-  "author": "Carlos Astrada, JP Da Prato, Anthony Schafrik",
+  "author": "Carlos Astrada",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/deduced/pet-adoption-react/issues"
@@ -32,6 +32,7 @@
     "prettier": "^1.14.3"
   },
   "dependencies": {
+    "petfinder-client": "0.0.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   }
