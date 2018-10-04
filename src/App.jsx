@@ -7,6 +7,10 @@ import Results from './Results.jsx';
 import Details from './Details.jsx';
 import SearchParams from './SearchParams.jsx';
 
+const petfinder = pf({
+  key: process.env.API_KEY,
+  secret: process.env.API_SECRET
+});
 class App extends React.Component {
   constructor(props) {
     super(props);
