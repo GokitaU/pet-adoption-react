@@ -1,6 +1,7 @@
 import React from 'react';
 import pf from 'petfinder-client';
 import Pet from './Pet.jsx';
+import SearchBox from './SearchBox.jsx';
 
 //This is a bad practices since when we bundle someone could see the key/secrets.
 // For the purpose of learning, this is an acceptable risk.
@@ -46,6 +47,7 @@ class Results extends React.Component {
   render() {
     return (
       <div className="search">
+        <SearchBox />
         {this.state.pets.map(pet => {
           let breed;
           if (Array.isArray(pet.breeds.breed)) {
