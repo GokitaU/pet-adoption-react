@@ -9,6 +9,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
     "test": "jest --silent",
+    "test:coverage": "jest --silent --coverage",
     "test:update": "jest --silent -u",
     "test:watch": "jest --silent -- --watch"
   },
