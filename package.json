@@ -8,7 +8,8 @@
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --silent",
+    "test:update": "jest --silent -u"
   },
   "repository": {
     "type": "git",
