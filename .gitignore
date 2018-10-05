@@ -2,3 +2,6 @@
 .env
 dist/
 node_modules
+
+#Istanbul Test Coverage
+coverage/
