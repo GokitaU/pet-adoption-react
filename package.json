@@ -9,7 +9,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
     "test": "jest --silent",
-    "test:update": "jest --silent -u"
+    "test:update": "jest --silent -u",
+    "test:watch": "jest --silent -- --watch"
   },
   "repository": {
     "type": "git",
