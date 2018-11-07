@@ -1,7 +1,7 @@
 import React from 'react';
 import pf from 'petfinder-client';
 import { Consumer } from './SearchContext.jsx';
-import Pet from './Pet.jsx';
+import Pet from './Pet';
 import SearchBox from './SearchBox.jsx';
 
 //This is a bad practices since when we bundle someone could see the key/secrets.
