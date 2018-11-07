@@ -1,17 +1,34 @@
 import React from 'react';
-import pf from 'petfinder-client';
-import { Consumer } from './SearchContext.jsx';
+import pf, { Pet as PetType } from 'petfinder-client';
+import { RouteComponentType, RouteComponentProps } from '@reach/router';
+import { Consumer } from './SearchContext.js';
 import Pet from './Pet';
-import SearchBox from './SearchBox.jsx';
+import SearchBox from './SearchBox.js';
 
-//This is a bad practices since when we bundle someone could see the key/secrets.
+if (!process.env.API_KEY || !process.env.API_SECRET) {
+  throw new Error('no API keys found!');
+}
+
+interface Props {
+  searchParams: {
+    location: string;
+    animal: string;
+    breed: string;
+  };
+}
+
+interface State {
+  pets: PetType[];
+}
+
+// This is a bad practices since when we bundle someone could see the key/secrets.
 // For the purpose of learning, this is an acceptable risk.
 const petfinder = pf({
   key: process.env.API_KEY,
   secret: process.env.API_SECRET
 });
 
-class Results extends React.Component {
+class Results extends React.Component<Props, State> {
   constructor(props) {
     super(props);
 
@@ -20,11 +37,11 @@ class Results extends React.Component {
     };
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     this.search();
   }
 
-  search = () => {
+  public search = () => {
     petfinder.pet
       .find({
         output: 'full',
@@ -33,9 +50,9 @@ class Results extends React.Component {
         breed: this.props.searchParams.breed
       })
       .then(data => {
-        let pets;
+        let pets: PetType[];
 
-        //check the data to appropriately shape it since the API is xml and a bit wonky
+        // check the data to appropriately shape it since the API is xml and a bit wonky
         if (data.petfinder.pets && data.petfinder.pets.pet) {
           if (Array.isArray(data.petfinder.pets.pet)) {
             pets = data.petfinder.pets.pet;
@@ -46,15 +63,15 @@ class Results extends React.Component {
           pets = [];
         }
 
-        //es6 allows to use just name of var if var and value are same name.
-        //Same as pets: pets
+        // es6 allows to use just name of var if var and value are same name.
+        // Same as pets: pets
         this.setState({
           pets
         });
       });
   };
 
-  render() {
+  public render() {
     return (
       <div className="search">
         <SearchBox search={this.search} />
@@ -83,7 +100,7 @@ class Results extends React.Component {
   }
 }
 
-export default function ResultsWithContext(props) {
+export default function ResultsWithContext(props: RouteComponentProps) {
   return (
     <Consumer>
       {context => <Results {...props} searchParams={context} />}
