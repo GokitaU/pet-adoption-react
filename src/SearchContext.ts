@@ -6,9 +6,9 @@ const SearchContext = React.createContext({
   animal: '',
   breed: '',
   breeds: [] as string[],
-  handleAnimalChange(event: React.KeyboardEvent<HTMLInputElement>) {},
+  handleAnimalChange(event: React.ChangeEvent<HTMLSelectElement>) {},
   handleBreedChange(event: React.ChangeEvent<HTMLSelectElement>) {},
-  handleLocationChange(event: React.KeyboardEvent<HTMLInputElement>) {},
+  handleLocationChange(event: React.ChangeEvent<HTMLInputElement>) {},
   getBreeds() {}
 });
 
