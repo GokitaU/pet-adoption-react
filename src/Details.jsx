@@ -2,7 +2,7 @@ import React from 'react';
 import pf from 'petfinder-client';
 import { navigate } from '@reach/router';
 import Carousel from './Carousel.jsx';
-import Modal from './Modal.jsx';
+import Modal from './Modal';
 
 const petfinder = pf({
   key: process.env.API_KEY,
