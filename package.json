@@ -9,7 +9,7 @@
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
-    "start": "npm run build && babel-node server/index.js",
+    "start": "npm run build && babel-node server.js",
     "test": "jest --silent",
     "test:coverage": "jest --silent --coverage",
     "test:update": "jest --silent -u",
