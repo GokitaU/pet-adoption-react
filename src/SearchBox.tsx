@@ -7,7 +7,7 @@ interface Props {
 }
 
 class SearchBox extends React.Component<Props> {
-  public handleFormSubmit = event => {
+  public handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     this.props.search();
   };

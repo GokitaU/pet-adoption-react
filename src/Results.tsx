@@ -1,6 +1,6 @@
 import React from 'react';
 import pf, { Pet as PetType } from 'petfinder-client';
-import { RouteComponentType, RouteComponentProps } from '@reach/router';
+import { RouteComponentProps } from '@reach/router';
 import { Consumer } from './SearchContext';
 import Pet from './Pet';
 import SearchBox from './SearchBox';
@@ -29,7 +29,7 @@ const petfinder = pf({
 });
 
 class Results extends React.Component<Props, State> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     this.state = {

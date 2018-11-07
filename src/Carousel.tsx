@@ -13,7 +13,7 @@ interface State {
 
 class Carousel extends React.Component<Props, State> {
   public state = {
-    photos: [],
+    photos: [] as PetPhoto[],
     active: 0
   };
 
