@@ -1,14 +1,18 @@
 import React from 'react';
 import { ANIMALS } from 'petfinder-client';
-import { Consumer } from './SearchContext.jsx';
+import { Consumer } from './SearchContext.js';
 
-class SearchBox extends React.Component {
-  handleFormSubmit = event => {
+interface Props {
+  search: () => void;
+}
+
+class SearchBox extends React.Component<Props> {
+  public handleFormSubmit = event => {
     event.preventDefault();
     this.props.search();
   };
 
-  render() {
+  public render() {
     return (
       <Consumer>
         {context => (
