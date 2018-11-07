@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact-compat';
 import pf from 'petfinder-client';
 import { Consumer } from './SearchContext.jsx';
 import Pet from './Pet.jsx';

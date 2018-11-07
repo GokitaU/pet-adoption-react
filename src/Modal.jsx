@@ -1,5 +1,5 @@
-import React from 'react';
-import { createPortal } from 'react-dom';
+import React from 'preact-compat';
+import { createPortal } from 'preact-compat';
 
 class Modal extends React.Component {
   constructor(props) {

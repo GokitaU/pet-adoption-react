@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'preact-compat';
 import SearchBox from './SearchBox.jsx';
-import { navigate } from '@reach/router';
+import { navigate } from 'preact-router';
 
 class SearchParams extends React.Component {
   handleSearchSubmit() {

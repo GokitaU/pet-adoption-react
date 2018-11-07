@@ -1,7 +1,7 @@
 import express from 'express';
-import React from 'react';
+import React from 'preact-compat';
 import { renderToNodeStream } from 'react-dom/server';
-import { ServerLocation } from '@reach/router';
+import { ServerLocation } from 'preact-router';
 import fs from 'fs';
 import App from './src/App.jsx';
 

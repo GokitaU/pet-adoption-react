@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from '@reach/router';
+import React from 'preact-compat';
+import { Link } from 'preact-router';
 
 class Pet extends React.Component {
   render() {

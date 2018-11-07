@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact-compat';
 import { create } from 'react-test-renderer';
 import Details from '../Details.jsx';
 
