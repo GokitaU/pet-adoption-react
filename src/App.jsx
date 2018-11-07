@@ -1,7 +1,10 @@
 import React from 'react';
 import { Router } from '@reach/router';
 import pf from 'petfinder-client';
-import Loadable from 'react-loadable';
+import Results from './Results.jsx';
+import Details from './Details.jsx';
+import SearchParams from './SearchParams.jsx';
+// import Loadable from 'react-loadable';
 import { Provider } from './SearchContext.jsx';
 import NavBar from './NavBar.jsx';
 
@@ -10,28 +13,28 @@ const petfinder = pf({
   secret: process.env.API_SECRET
 });
 
-//Define loadable components for code-splitting
-//TODO: Refactor as higher order component
-const LoadableDetails = Loadable({
-  loader: () => import('./Details'),
-  loading() {
-    return <h1>loading split out code</h1>;
-  }
-});
+// //Define loadable components for code-splitting
+// //TODO: Refactor as higher order component
+// const LoadableDetails = Loadable({
+//   loader: () => import('./Details'),
+//   loading() {
+//     return <h1>loading split out code</h1>;
+//   }
+// });
 
-const LoadableResults = Loadable({
-  loader: () => import('./Results'),
-  loading() {
-    return <h1>loading split out code</h1>;
-  }
-});
+// const LoadableResults = Loadable({
+//   loader: () => import('./Results'),
+//   loading() {
+//     return <h1>loading split out code</h1>;
+//   }
+// });
 
-const LoadableSearchParams = Loadable({
-  loader: () => import('./SearchParams'),
-  loading() {
-    return <h1>loading split out code</h1>;
-  }
-});
+// const LoadableSearchParams = Loadable({
+//   loader: () => import('./SearchParams'),
+//   loading() {
+//     return <h1>loading split out code</h1>;
+//   }
+// });
 
 class App extends React.Component {
   constructor(props) {
@@ -97,9 +100,12 @@ class App extends React.Component {
         <NavBar />
         <Provider value={this.state}>
           <Router>
-            <LoadableResults path="/" />
+            <Results path="/" />
+            <Details path="/details/:id" />
+            <SearchParams path="/search-params" />
+            {/* <LoadableResults path="/" />
             <LoadableDetails path="/details/:id" />
-            <LoadableSearchParams path="/search-params" />
+            <LoadableSearchParams path="/search-params" /> */}
           </Router>
         </Provider>
       </div>
