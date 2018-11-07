@@ -1,6 +1,5 @@
 import React from 'react';
 import pf from 'petfinder-client';
-// import Loadable from 'react-loadable';
 import { navigate } from '@reach/router';
 import Carousel from './Carousel.jsx';
 import Modal from './Modal.jsx';
@@ -9,14 +8,6 @@ const petfinder = pf({
   key: process.env.API_KEY,
   secret: process.env.API_SECRET
 });
-
-// //Code-split content for Modal invocation
-// const LoadableContent = Loadable({
-//   loader: () => import('./AdoptModalContent'),
-//   loading() {
-//     return <h1>loading content...</h1>;
-//   }
-// });
 
 class Details extends React.Component {
   state = {
@@ -87,7 +78,11 @@ class Details extends React.Component {
           <p>{description}</p>
           {showModal ? (
             <Modal>
-              {/* <LoadableContent toggleModal={this.toggleModal} name={name} /> */}
+              <h1>Would you like to adopt {name}?</h1>
+              <div className="buttons">
+                <button onClick={this.toggleModal}>Yes</button>
+                <button onClick={this.toggleModal}>No</button>
+              </div>
             </Modal>
           ) : null}
         </div>
