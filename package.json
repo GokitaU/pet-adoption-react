@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build --public-url ./dist/ src/index.html",
     "dev": "parcel src/index.html",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,css,json}\"",
+    "start": "npm run build && babel-node server/index.js",
     "test": "jest --silent",
     "test:coverage": "jest --silent --coverage",
     "test:update": "jest --silent -u",
@@ -42,7 +44,9 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "babel-cli": "^6.26.0",
     "emotion": "^9.2.12",
+    "express": "^4.16.4",
     "petfinder-client": "0.0.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
