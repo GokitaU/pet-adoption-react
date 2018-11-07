@@ -2,7 +2,7 @@ import React from 'react';
 import { Router } from '@reach/router';
 import pf from 'petfinder-client';
 import Results from './Results.jsx';
-import Details from './Details.jsx';
+import Details from './Details';
 import SearchParams from './SearchParams.jsx';
 // import Loadable from 'react-loadable';
 import { Provider } from './SearchContext.jsx';
