@@ -1,7 +1,7 @@
 import React from 'react';
 import pf, { PetResponse, PetMedia } from 'petfinder-client';
 import { navigate, RouteComponentProps } from '@reach/router';
-import Carousel from './Carousel.jsx';
+import Carousel from './Carousel';
 import Modal from './Modal';
 
 if (!process.env.API_KEY || !process.env.API_SECRET) {
