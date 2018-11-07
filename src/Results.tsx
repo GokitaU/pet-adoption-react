@@ -1,9 +1,9 @@
 import React from 'react';
 import pf, { Pet as PetType } from 'petfinder-client';
 import { RouteComponentType, RouteComponentProps } from '@reach/router';
-import { Consumer } from './SearchContext.js';
+import { Consumer } from './SearchContext';
 import Pet from './Pet';
-import SearchBox from './SearchBox.js';
+import SearchBox from './SearchBox';
 
 if (!process.env.API_KEY || !process.env.API_SECRET) {
   throw new Error('no API keys found!');

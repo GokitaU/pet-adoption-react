@@ -1,6 +1,6 @@
 import React from 'react';
 import { ANIMALS } from 'petfinder-client';
-import { Consumer } from './SearchContext.js';
+import { Consumer } from './SearchContext';
 
 interface Props {
   search: () => void;
